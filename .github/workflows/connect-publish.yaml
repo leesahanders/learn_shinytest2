@@ -1,12 +1,12 @@
 name: connect-publish
 on:
   push:
-    branches: [main]
+    branches: [master]
 
 jobs:
   connect-publish:
     name: connect-publish
-    runs-on: macOS-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Publish Connect content
