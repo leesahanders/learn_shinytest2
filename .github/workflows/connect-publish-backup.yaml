@@ -4,19 +4,20 @@ on:
     branches: [main]
 
 jobs:
+  test-app:
+    uses: ./.github/workflows/test-actions.yaml
   connect-publish:
     name: connect-publish
-    runs-on: macOS-latest
+    needs: [test-app]
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
       - name: Publish Connect content
         uses: rstudio/actions/connect-publish@main
         with:
-          url: url: ${{ secrets.CONNECT_URL }}
+          url: ${{ secrets.CONNECT_URL }}
           api-key: ${{ secrets.CONNECT_API_KEY }}
           access-type: acl
           dir: |
-            ./very-shiny-app/:/shiny/app/path/
-            ./useful-rmarkdown-report/:useful-report-for-cats
-            ./slick-flask-api/
-            ./insightful-jupyter-notebook/:528f3dc0-3bd0-41e6-a191-aa264c451416
+            .:/shinytest2_gha
+
