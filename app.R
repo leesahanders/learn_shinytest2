@@ -3,6 +3,7 @@
 #Removing a comment, and forcing it to push to connect
 
 library(shiny)
+library(shinytest2)
 
 ui<- fluidPage(
   titlePanel("Adverse Events Query to OpenFDA", windowTitle = "Adverse Events Query to OpenFDA"),
