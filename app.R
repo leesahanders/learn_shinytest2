@@ -4,6 +4,7 @@
 
 library(shiny)
 library(shinytest2)
+library(rsconnect)
 
 ui<- fluidPage(
   titlePanel("Adverse Events Query to OpenFDA", windowTitle = "Adverse Events Query to OpenFDA"),
