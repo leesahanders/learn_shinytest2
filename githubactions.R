@@ -3,4 +3,4 @@
 # 
 # usethis::use_github_action(url="https://raw.githubusercontent.com/rstudio/shinytest2/main/.github/workflows/test-actions.yaml")
 
-usethis::use_github_action(url = "https://raw.githubusercontent.com/rstudio/actions/main/examples/test-r-lib.yaml")
+# usethis::use_github_action(url = "https://raw.githubusercontent.com/rstudio/actions/main/examples/test-r-lib.yaml")
