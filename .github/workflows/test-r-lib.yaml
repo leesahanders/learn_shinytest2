@@ -38,6 +38,10 @@ jobs:
     name: connect-publish
     runs-on: ubuntu-latest
     steps:
+      - name: Create manifest.json
+        shell: Rscript {0}
+        run: |
+          rsconnect::writeManifest()
       - uses: actions/checkout@v2
       - name: Publish the app to Connect
         uses: rstudio/actions/connect-publish@main
