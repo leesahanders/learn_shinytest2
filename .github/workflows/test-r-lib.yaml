@@ -18,6 +18,7 @@ jobs:
         shell: bash
         run: |
           rm .Rprofile
+      - uses: r-lib/actions/setup-renv@v2 # use our renv.lock
       - name: Test Shiny App
         shell: Rscript {0}
         run: |
