@@ -39,7 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Publish Connect content
+      - name: Publish the app to Connect
         uses: rstudio/actions/connect-publish@main
         with:
           url: ${{ secrets.CONNECT_URL }}
