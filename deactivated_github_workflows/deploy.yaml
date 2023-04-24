@@ -1,0 +1,40 @@
+name: deploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: deploy
+        uses: rstudio/actions/connect-publish@main
+        with:
+          url: https://${{ secrets.CONNECT_API_KEY }}@colorado.posit.co/rsc
+          namespace: python-examples
+          dir: |
+            ./dash-app/
+            ./dash-bikeshare/
+            ./fastapi-stock/
+            ./flask-getting-started-rsc/
+            ./flask-getting-started-sqlalchemy/
+            ./flask-restx/
+            ./flask-sentiment-analysis-api/
+            ./flask-sentiment-analysis-app/
+            ./jupyter-interactive-visualization/
+            ./jupyter-voila/
+            ./quarto-lightbox/
+            ./reticulated-image-classifier/
+            ./reticulated-rmarkdown-notebook/
+            ./reticulated-sentiment-analysis-api/
+            ./reticulated-sentiment-analysis-app/
+            ./shiny-income-share/
+            ./streamlit-income-share/
+          require-vanity-path: true
+          access-type: all
